@@ -1,6 +1,15 @@
+/*  Code: Typewriter
+ *  By: Tyler Gragg
+ *  Date: 9/12/2017
+ *  For: Practical Low Voltage Solutions
+ *  Version: 1.6
+ *  
+ *  Designed to trigger a MagLock when a specific word is typed into a typewritter.
+ */
+
 #include <Bounce2.h>
 
-//num is the number of letters used in the code word, EX HELP = 4, HELLO = 4
+//num is the number distinct of letters used in the code word, EX HELP = 4, HELLO = 4
 const int num = 4;
 
 //Change pin numbers

@@ -1,3 +1,13 @@
+/*  Code: CokeMachine
+ *  By: Tyler Gragg
+ *  Date: 6/10/2017
+ *  For: Practical Low Voltage Solutions
+ *  Version: 1.2
+ *  
+ *  Used to trigger a MagLock after entering the correct code on a coke machine. 
+ *  Also, if the coke button is pressed at all, then another relay triggers.
+ */
+
 #include <Bounce2.h>
 
 const int CAFFREE = 9;

@@ -1,11 +1,11 @@
-/*  Code: BattleBot
-*  Version: 1.5
-*  By: Tyler Gragg
-*  Date: 6/25/2017
-*  For: Personal Project
+/*  Code: Tank_Controls
+*   Version: 1.5
+*   By: Tyler Gragg
+*   Date: 6/25/2017
+*   For: Personal Project
 *
-*  This code is designed to control a pusher battlebot for dragoncon 2017. The idea for this code is that is reads in values from a reciever and sends them out to an H-Bridge that controls four motors spinning
-*  bi-directionally. The code also has a section that will flip the controls in case the robot gets flipped upside down.
+*   This code is designed to control a pusher battlebot for dragoncon 2017. The idea for this code is that is reads in values from a reciever and sends them out to an H-Bridge that controls four motors spinning
+*   bi-directionally. The code also has a section that will flip the controls in case the robot gets flipped upside down.
 */
 
 #define controlPin1A 3  // 4 pins used for spinning motors in specific directions

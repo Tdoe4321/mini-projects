@@ -1,3 +1,13 @@
+/*  Code: Music_Buzzer_LCD
+ *  By: Tyler Gragg
+ *  Date: 12/15/2017
+ *  For: Practical Low Voltage Solutions
+ *  Version: 1.1
+ *  
+ *  Christmas Present 2017 - Rachel
+ *  Designed to sing the back to the future theme and display quotes from the movie on an LCD Display.
+ */
+
 #include <LiquidCrystal.h>
 #include "pitches.h"
 
@@ -13,8 +23,9 @@ boolean blank = false;
 boolean midNote = false;
 int noteDuration = 0;
 int lastRand = -1;
+int numQuotes = 9;
 
-
+// These notes are defined in pitches.h, and are based on the frequency that the Piezo buzzer emmits
 int melody[] = {
   NOTE_CS3, NOTE_GS3, NOTE_CS4, NOTE_B3, NOTE_AS3, NOTE_GS3, NOTE_AS3, NOTE_GS3, NOTE_FS3, NOTE_GS3,
   0,
@@ -28,7 +39,7 @@ int melody[] = {
   
 };
 
-// note durations: 4 = quarter note, 8 = eighth note, etc.:
+// note durations: 1 = whole note, 4 = quarter note, 8 = eighth note, etc.:
 int noteDurations[] = {
   2, 1, 2, 1, 8, 8, 4, 2, 2, 1,
   2,
@@ -39,8 +50,6 @@ int noteDurations[] = {
   2, 2, 2, 4, 4, 6, 6, 6,
   4, 8, 8, 4, 4, 4, 4, 4, 4, 8, 8, 1,
   1
-  
-  
 };
 
 void setup() {
@@ -49,6 +58,7 @@ void setup() {
 
   randomSeed(analogRead(5));
   
+  //My LCD Display was a bit strange, and it had to reset it's curson each time to do longer words for some reason  
   lcd.begin(8, 2); 
   lcd.print("Hello, R");
   lcd.setCursor(0, 1);
@@ -57,11 +67,14 @@ void setup() {
 }
 
 void loop() { 
-  randomNum = random(1,10);
+  //Random Number Generator
+  //If I get the same random number, I do another random number hoping to get something different.
+  //That way, the changes of displaying the same quote twice is very low
+  randomNum = random(1, (numQuotes+1));
   if(randomNum == lastRand){
-    randomNum = random(1, 10);
+    randomNum = random(1, (numQuotes+1));
     if(randomNum == lastRand){
-      randomNum = random(1, 10);
+      randomNum = random(1, (numQuotes+1));
     }
   }
   lastRand = randomNum;
@@ -88,6 +101,7 @@ void loop() {
   }
 }
 
+//Custom LCD Printing method
 void print8x2(String text){
   int len = text.length();
   for(int i = 0; i < (len); i ++){

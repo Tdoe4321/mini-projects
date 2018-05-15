@@ -1,3 +1,12 @@
+/*  Code: Channel_Checker
+ *  By: Tyler Gragg
+ *  Date: 4/10/2016
+ *  For: Personal - BattleBot 
+ *  Version: 1.0
+ *  
+ *  Designed to check individual PWM Signals from a radio and output their values to the arduino serial monitor
+ */
+
 int ch1 = 0;
 int ch2 = 0;
 int ch3 = 0;
@@ -16,11 +25,13 @@ void setup() {
 }
 
 void loop() {
+  //Import Values
   ch1 = pulseIn(A4, HIGH, 250000);
   ch2 = pulseIn(A5, HIGH, 250000);
   ch3 = pulseIn(A2, HIGH, 250000);
   //ch4 = pulseIn(8, HIGH, 250000);
 
+  //Print out section
   Serial.print("Left Stick: X:\t");  
   //ch4 = map(ch4, 994, 1986, -500, 500);
   if(ch4 > -23 && ch4 < 23)
